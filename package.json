@@ -1,0 +1,30 @@
+{
+  "name": "blog",
+  "version": "1.0.0",
+  "description": "",
+  "main": "webpack.config.js",
+  "scripts": {
+    "build": "npm run clear && webpack --config webpack.config.js",
+    "dev": "webpack-dev-server",
+    "clear": "rm -rf dist"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/shuaijg/Blog.git"
+  },
+  "author": "shuaijg",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/shuaijg/Blog/issues"
+  },
+  "homepage": "https://github.com/shuaijg/Blog#readme",
+  "devDependencies": {
+    "css-loader": "^2.0.1",
+    "vue": "^2.5.21",
+    "vue-loader": "^15.4.2",
+    "vue-template-compiler": "^2.5.21",
+    "webpack": "^4.27.1",
+    "webpack-cli": "^3.1.2",
+    "webpack-dev-server": "^3.1.10"
+  }
+}
