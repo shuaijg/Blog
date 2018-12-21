@@ -1,0 +1,50 @@
+/*Initialization start*/
+html, body {
+    font-family: Microsoft YaHei ,Arial, Helvetica, sans-serif !important;
+    font-size: 14px;
+    /*color: #fff;*/
+    background-color: #f2f2f2 !important;
+    height: 100%;
+  }
+  
+  body {
+    overflow-x: hidden;
+    overflow-y: hidden;
+  }
+  
+  body, div, dl, dt, dd, ul, ol, li, pre, form, fieldset, button, textarea, input, p, blockquote, th, td {
+    margin: 0;
+    padding: 0;
+    outline: none;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    font-weight: normal;
+    font-size: 100%;
+  }
+  #app h4{
+    font-weight: 500;
+    font-size: 18px;
+  }
+  ol, ul, li {
+    list-style: none;
+  }
+  
+  a {
+    text-decoration: none;
+    color: #3888be;
+  }
+  
+  a:hover {
+    cursor: pointer;
+    text-decoration: underline;
+  }
+  
+  img {
+    border: none;
+  }
+  
+  table {
+    border-collapse: collapse;
+  }
+  /*Initialization end*/
