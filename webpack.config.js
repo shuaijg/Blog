@@ -117,7 +117,10 @@ const config = {
               }
             }]
         }),
-    ] 
+    ],
+    performance: {
+        hints: false
+      } 
 }
 
 module.exports = config;  //接口暴露
