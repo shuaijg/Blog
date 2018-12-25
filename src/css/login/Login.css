@@ -1,0 +1,21 @@
+.el-col {
+    border-radius: 4px;
+}
+.bg-login {
+    background: #b7a3aa14;
+}
+.grid-content {
+    border-radius: 4px;
+    height: 300px;
+    box-shadow: 0 4px 23px 5px rgba(0,0,0,.2), 0 2px 6px rgba(0,0,0,.15);
+    -webkit-box-shadow: 0 4px 23px 5px rgba(0,0,0,.2), 0 2px 6px rgba(0,0,0,.15);
+}
+.el-input {
+    position: relative;
+    font-size: 14px;
+    display: inline-block;
+    width: 82%;
+}
+.el-button {
+    width: 82%;
+}

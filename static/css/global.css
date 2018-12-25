@@ -48,3 +48,107 @@ html, body {
     border-collapse: collapse;
   }
   /*Initialization end*/
+  .height-per100{
+    height:100%
+  }
+  .ver-mid {
+    vertical-align: middle;
+  }
+  .ver-bottom{
+    vertical-align: bottom;
+  }
+  .ver-top {
+    vertical-align: top;
+  }
+  .ver-text-top {
+    vertical-align: text-top;
+  }
+  .ver-text-bottom {
+    vertical-align: text-bottom;
+  }
+  .ver-inherit {
+    vertical-align: inherit;
+  }
+  
+  .text-c{
+    text-align: center;
+  }
+  .text-l{
+    text-align: left;
+  }
+  .text-r{
+    text-align: right;
+  }
+  .bold{
+    font-weight: bold;
+  }
+  .font0{
+    font-size: 0;
+  }
+  .font12{
+    font-size: 12px;
+  }
+  .font13{
+    font-size: 13px;
+  }
+  .font14{
+    font-size: 14px;
+  }
+  .font16{
+    font-size: 16px;
+  }
+  .font18{
+    font-size: 18px;
+  }
+  .font20{
+    font-size: 20px;
+  }
+  .font22{
+    font-size: 22px;
+  }
+  .font24{
+    font-size: 24px;
+  }
+  .font26{
+    font-size: 26px;
+  }
+  .line-height-12{
+    line-height: 12px;
+  }
+  .line-height-14{
+    line-height: 14px;
+  }
+  .line-height-16{
+    line-height: 16px;
+  }
+  .line-height-30{
+    line-height: 30px;
+  }
+  .line-height-24{
+    line-height: 24px;
+  }
+  .line-height-60{
+    line-height: 60px;
+  }
+  .line-height-85{
+    line-height: 85px;
+  }
+  .margin-t0{
+    margin-top: 0px;
+  }
+  .margin-t5{
+    margin-top: 5px;
+  }
+  .margin-t10{
+    margin-top: 10px;
+  }
+  .margin-t-15{
+    margin-top: 15px;
+  }
+  .padding-tb-10{
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
+  .position-r{
+    position: relative;
+  }

@@ -10,7 +10,7 @@ const happyThreadPool = HappyPack.ThreadPool({ size: os.cpus().length });//获�
 //注： __dirname是node.js的全局变量，它指向当前执行脚本所在的目录。
 
 function resolve (dir) {
-    return path.join(__dirname, '..', dir)
+    return path.join(__dirname, '.', dir)
   }
 
 const config = {
@@ -25,13 +25,14 @@ const config = {
         publicPath:'/'//公共路径
     },
     module: {
+        //配置一个rules(规则),rules是一个数组,里面包含一条一条的规则
         rules: [{
-            test: /\.vue$/,
+            test: /\.vue$/,  // test 表示测试什么文件类型
             use: ['vue-loader'],
             exclude: path.resolve(__dirname, 'node_modules') // 排除文件
         }, {
             test: /\.css$/,
-            use: 'css-loader'
+            use: ['style-loader','css-loader']
         },{
             test: /\.(png|jpg)$/,
             use: ['happypack/loader?id=image']

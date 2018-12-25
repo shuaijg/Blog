@@ -1,6 +1,6 @@
 <template>
     <div id="app">
-        {{msg}}
+        <router-view></router-view>
     </div>
 </template>
  
@@ -10,12 +10,21 @@ export default {
         return {
             msg: 'hello everyone'
         }
+    },
+    mounted: function() {
+        
     }
 }
 </script>
  
 <style>
 #app{
-    color: aqua;
-}
+    position: absolute;
+    width: 100%;
+    left: 0;
+    top: 0;
+    right:0;
+    bottom: 0;
+    height: 100%;
+  }
 </style>
