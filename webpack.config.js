@@ -61,10 +61,11 @@ const config = {
        poll: 1000  //每秒询问的文件变更的次数
    },
    devServer : {
+       contentBase: "./src", //本地服务器所加载的页面所在的目录
        host: 'localhost',    // 服务器的IP地址，可以使用IP也可以使用localhost
        inline: true,         //实时刷新
        compress: true,       // 服务端压缩是否开启
-       port: 8080,           // 端口
+       port: 8088,           // 端口
        hot: true,
        open: true,           // 自动打开浏览器
        historyApiFallback: true, //不跳转
@@ -74,11 +75,12 @@ const config = {
            errors: true
        },
        proxy: {
-        "/apis": {
-            target: 'http://localhost:3030', // 接口域名
-            ws: true,
-            changeOrigin: true // 是否跨域
-         }
+        "/api": {
+            target: 'http://localhost:3001', // 接口域名
+            //ws: true,
+            changeOrigin: true, // 是否跨域
+            pathRewrite: {"^/api" : ""}//这里把/api换成""
+         },
         }
    },
     plugins: [
