@@ -62,7 +62,7 @@ const config = {
    },
    devServer : {
        //contentBase: "./src", //本地服务器所加载的页面所在的目录
-       ontentBase: "./dist",
+       contentBase: "./dist",
        host: 'localhost',    // 服务器的IP地址，可以使用IP也可以使用localhost
        inline: true,         //实时刷新
        compress: true,       // 服务端压缩是否开启
