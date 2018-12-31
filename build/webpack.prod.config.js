@@ -7,16 +7,7 @@ const OptimizeCSSPlugin = require('optimize-css-assets-webpack-plugin')//用来�
 const proWebpackConfig = merge(webpackConfig,{
     devtool:'source-map',//开发环境下用cheap-module-eval-source-map,生产环境用source-map
     plugins:[
-        new HtmlWebpackPlugin({
-            filename: 'index.html',
-            template: 'index.html',
-            inject: true,
-            minify: {//html文件的压缩规则
-              removeComments: true,//去除注释
-              collapseWhitespace: true,//去除空格
-              removeAttributeQuotes: true//删除引号，删除不需要引号的值。
-            },
-        }),
+        new HtmlWebpackPlugin(),
         new MiniCssExtractPlugin({
             filename: "style.css",
             chunkFilename:'static/styles/style.css',

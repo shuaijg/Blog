@@ -1,4 +1,5 @@
 const path = require('path');   //引入node的路径
+//vue-loader: 解析和转换.vue文件，提取出其中的逻辑代码script，样式代码style及html模板template，再分别将他们交给对应的Loader去处理。
 const VueLoaderPlugin = require('vue-loader/lib/plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');  //引入打包html文件
 const webpack=require('webpack');
@@ -14,13 +15,13 @@ function resolve (dir) {
   }
 
 const config = {
-    mode: '',
+    mode: 'none',
     entry:{
         app: ["babel-polyfill", "./src/main.js"] //主入口文件
      },
     output: {
         filename:'static/js/[name].js',//出口文件名称
-        path:path.resolve(__dirname,'./dist'),//出口路径
+        path:path.resolve(__dirname,'../dist'),//出口路径
         chunkFilename:'static/js/[name].js',//分成块的打包地址会打包在static/js
         publicPath:'/'//公共路径
     },
@@ -29,10 +30,10 @@ const config = {
         rules: [{
             test: /\.vue$/,  // test 表示测试什么文件类型
             use: ['vue-loader'],
-            exclude: path.resolve(__dirname, 'node_modules') // 排除文件
+            exclude: path.resolve(__dirname, '../node_modules') // 排除文件
         }, {
             test: /\.css$/,
-            use: ['style-loader','css-loader']
+            use: ['style-loader','css-loader'] //css-loader: 加载由vue-loader提取出的css代码。
         },{
             test: /\.(png|jpg)$/,
             use: ['happypack/loader?id=image']
@@ -40,7 +41,7 @@ const config = {
             test: /\.js$/,
             // 将对.js文件的处理转交给id为babel的HappyPack的实列
             use: ['happypack/loader?id=babel'],
-            exclude: path.resolve(__dirname, 'node_modules') // 排除文件
+            exclude: path.resolve(__dirname, '../node_modules') // 排除文件
         },{
             test: /\.(eot|svg|ttf|woff|woff2)$/,
             loader: 'file-loader'
@@ -61,7 +62,8 @@ const config = {
        poll: 1000  //每秒询问的文件变更的次数
    },
    devServer : {
-       contentBase: "./src", //本地服务器所加载的页面所在的目录
+       //contentBase: "./src", //本地服务器所加载的页面所在的目录
+       contentBase: "../dist",
        host: 'localhost',    // 服务器的IP地址，可以使用IP也可以使用localhost
        inline: true,         //实时刷新
        compress: true,       // 服务端压缩是否开启
@@ -75,11 +77,11 @@ const config = {
            errors: true
        },
        proxy: {
-        "/action": {
+        "/api": {
             target: 'http://localhost:3001', // 接口域名
             //ws: true,
             changeOrigin: true, // 是否跨域
-            pathRewrite: {"^/api" : "/SSM"}//这里把/api换成/SSM
+            pathRewrite: {"^/api" : "/api"}//这里把/api换成""
          },
         }
    },
