@@ -80,7 +80,7 @@ const config = {
             target: 'http://localhost:3001', // 接口域名
             //ws: true,
             changeOrigin: true, // 是否跨域
-            pathRewrite: {"^/api" : ""}//这里把/api换成""
+            pathRewrite: {"^/api" : "/api"}//这里把/api换成""
          },
         }
    },
