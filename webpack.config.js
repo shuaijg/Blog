@@ -22,7 +22,7 @@ const config = {
         filename:'static/js/[name].js',//出口文件名称
         path:path.resolve(__dirname,'./dist'),//出口路径
         chunkFilename:'static/js/[name].js',//分成块的打包地址会打包在static/js
-        publicPath:'./'//公共路径
+        publicPath:'/'//公共路径
     },
     module: {
         //配置一个rules(规则),rules是一个数组,里面包含一条一条的规则
