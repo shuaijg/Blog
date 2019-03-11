@@ -1,10 +1,20 @@
-var express = require('express');
-var router = express.Router();
+const express = require('express');
+const router = express.Router();
+const mongo = require("mongodb").MongoClient;
+const connect = require('../init');
+const config = require('../dbConfig')
 
+connect();   
+console.log()
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  //res.render('index', { title: 'Express' });
-  res.json({id:1,name:"小帅"})
+  mongo.connect('mongodb://' + config.mongodb.dbIp + ':' + config.mongodb.dbPort,function(err,database){
+    const db = database.db(config.mongodb.dbName);
+    db.collection("blog_admin").find().toArray(function(err,data){
+    res.json(data);
+    database.close();
+   });
+  });
 });
 
 module.exports = router;

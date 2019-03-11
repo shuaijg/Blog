@@ -20,7 +20,7 @@ const config = {
         app: ["babel-polyfill", "./src/main.js"] //主入口文件
      },
     output: {
-        filename:'static/js/[name].js',//出口文件名称
+        filename:'static/js/[name].[hash:8].js',//出口文件名称
         path:path.resolve(__dirname,'../dist'),//出口路径
         chunkFilename:'static/js/[name].js',//分成块的打包地址会打包在static/js
         publicPath:'/'//公共路径
@@ -52,7 +52,7 @@ const config = {
        extensions: [' ', '.js', '.json', '.vue', '.scss', '.css'], //优先去找.js文件依赖 然后是.json 最后是.vue
        alias: {
         'vue$': 'vue/dist/vue.esm.js',
-        '@': resolve('src'),
+        '@': path.resolve('src'),
         'jquery': 'jquery'
       }
    },
@@ -80,9 +80,10 @@ const config = {
         "/api": {
             target: 'http://localhost:3001', // 接口域名
             //ws: true,
-            changeOrigin: true, // 是否跨域
             pathRewrite: {"^/api" : "/api"}//这里把/api换成""
          },
+         secure: false,// 如果是https接口，需要配置这个参数
+         changeOrigin: true// 如果接口跨域，需要进行这个参数配置
         }
    },
     plugins: [
