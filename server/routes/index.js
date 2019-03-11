@@ -5,7 +5,6 @@ const connect = require('../init');
 const config = require('../dbConfig')
 
 connect();   
-console.log()
 /* GET home page. */
 router.get('/', function(req, res, next) {
   mongo.connect('mongodb://' + config.mongodb.dbIp + ':' + config.mongodb.dbPort,function(err,database){
