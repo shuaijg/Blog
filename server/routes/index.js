@@ -1,19 +1,16 @@
 const express = require('express');
 const router = express.Router();
-const mongo = require("mongodb").MongoClient;
-const connect = require('../init');
-const config = require('../dbConfig')
+const db = require('../db');
 
-connect();   
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  mongo.connect('mongodb://' + config.mongodb.dbIp + ':' + config.mongodb.dbPort,function(err,database){
-    const db = database.db(config.mongodb.dbName);
-    db.collection("blog_admin").find().toArray(function(err,data){
-    res.json(data);
-    database.close();
-   });
-  });
+  db.find("blog_admin",{},function(err,data){
+    if(err) {
+      console.log("Error:" + err)
+      return
+    }
+    res.json(data)
+  })
 });
 
 module.exports = router;
