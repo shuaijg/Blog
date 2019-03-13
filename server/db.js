@@ -42,7 +42,7 @@ function _connectDB(callback) {
 module.exports.insertOne = function (collection, data, callback) {
   _connectDB(function (err, db) {
       if (err) throw err
-      var database = db.db(DB)
+      let database = db.db(DB)
       database.collection(collection).insertOne(data, function (err, result) {
           callback(err, result)
           db.close()

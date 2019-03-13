@@ -6,6 +6,7 @@ import App from './components/App.vue';
 import axios from 'axios';
 
 import '../static/css/global.css'; //引入全局class
+ import 'font-awesome/css/font-awesome.css'
 
 const root = document.createElement('div')
 document.body.appendChild(root);

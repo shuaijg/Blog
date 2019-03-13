@@ -12,7 +12,7 @@
                             <el-input v-model="formData.password" placeholder="请输入密码"></el-input>
                         </el-form-item>
                         <el-form-item>
-                            <el-button type="danger">登录{{message}}</el-button>
+                            <el-button type="danger">登录</el-button>
                         </el-form-item>
                     </el-form>
                 </div>
