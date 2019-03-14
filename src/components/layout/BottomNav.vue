@@ -1,6 +1,6 @@
 <template>
     <div class="footer">
-        <p>永不止步</p>
+        <p>Copyright © www.shuaijg.cn All Rights Reserved. 备案号：京ICP备18017964号-1</p>
     </div>
 </template>
 

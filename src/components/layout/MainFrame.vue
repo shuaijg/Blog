@@ -5,16 +5,16 @@
             <router-view name="leftSider"></router-view>
           </el-aside>
         <el-container>
-            <el-header>
+            <el-header> 
               <top-nav></top-nav>
-            </el-header>
+            </el-header>  
             <el-main>
               <router-view name="mainContent"></router-view>
-            </el-main>
+            </el-main>    
         </el-container>
-    </el-container>
+    </el-container>          
     <el-footer>
-      <bottom-nav></bottom-nav>
+      <bottom-nav></bottom-nav> 
     </el-footer>
     </el-container>
 </template>

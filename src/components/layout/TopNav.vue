@@ -1,6 +1,6 @@
 <template>
     <div>
-        <p>帅建国</p>
+        <p>个人主页</p>
     </div>
 </template>
 
