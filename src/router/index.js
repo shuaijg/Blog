@@ -22,7 +22,6 @@ export default new Router({
           {
             path: '',
             components:{
-              leftSider: LeftSider,
               mainContent: MainContent
             }
           }

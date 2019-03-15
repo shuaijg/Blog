@@ -1,8 +1,10 @@
 <template>
-    <el-container style="height:100%">
+    <el-container>
         <el-container>
-          <el-aside width="200px">
-            <router-view name="leftSider"></router-view>
+          <el-aside :width="isCollapse ? '65px' : '200px'">
+            <left-sider
+            @update:isCollapse="val=>isCollapse=val"
+            ></left-sider>
           </el-aside>
         <el-container>
             <el-header> 
@@ -13,9 +15,9 @@
             </el-main>    
         </el-container>
     </el-container>          
-    <el-footer>
+    <!-- <el-footer>
       <bottom-nav></bottom-nav> 
-    </el-footer>
+    </el-footer> -->
     </el-container>
 </template>
 
