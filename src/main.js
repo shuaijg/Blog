@@ -2,7 +2,6 @@ import Vue from 'vue';
 import router from './router'; // 路由
 import ElementUI from 'element-ui';
 import 'element-ui/lib/theme-chalk/index.css'; // element-ui的css文件引入
-//import "./assets/theme/theme-darkblue/index.css";
 import 'font-awesome/css/font-awesome.css'
 import App from './components/App.vue';
 import axios from 'axios';
