@@ -1,6 +1,5 @@
-.el-main{
-    background: #b7a3aa14;
-    background: url("../../img/login/background2.jpg");
+.el-row {
+    background: url("../../../static/images/login/background2.jpg");
 }
 .el-col {
     border-radius: 4px;
