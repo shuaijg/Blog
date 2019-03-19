@@ -1,8 +1,12 @@
+.el-main{
+    background: #b7a3aa14;
+    background: url("../../img/login/background2.jpg");
+}
 .el-col {
     border-radius: 4px;
 }
 .bg-login {
-    background: #b7a3aa14;
+    margin-top: -80px;
 }
 .grid-content {
     border-radius: 4px;
@@ -14,8 +18,19 @@
     position: relative;
     font-size: 14px;
     display: inline-block;
-    width: 82%;
+    width: 82%; 
 }
+
 .el-button {
     width: 82%;
+}
+.login-top,.login-bottom{
+    height:80px;
+    background-color:#FFFFFF;
+    line-height:80px;
+    text-align:right;
+}
+
+.el-form-item{
+    margin:8px 0;
 }

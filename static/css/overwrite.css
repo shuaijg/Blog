@@ -1,0 +1,440 @@
+/**
+   *   覆写elementUI样式 ，公用class可用
+ **/
+
+/********************覆写表单元素  开始***********************/
+/*覆写elementUI input的大小*/
+ .el-input__inner {
+    height: 30px;
+    line-height: 30px;
+    font-size: 12px;
+    border-radius: 4px;
+    border: 1px solid rgb(191, 203, 217);
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    padding: 3px 10px;
+    transition: border-color .2s cubic-bezier(.645, .045, .355, 1);
+    width: 100%;
+    outline: 0;
+    color: rgb(31, 45, 61);
+}
+
+/*日期控件的内边距*/
+.el-date-editor--date .el-input__inner {
+    padding-left: 30px;
+}
+
+/*时间 datetime*/
+.el-date-editor--datetime .el-input__inner,
+.el-date-editor--datetime .el-input__inner,
+.el-date-editor--datetime .el-input__inner {
+    padding-left: 27px;
+}
+
+/*所有表单下的label不加粗  多选不加粗*/
+.el-form label,
+.el-checkbox .el-checkbox__label {
+    font-weight: normal;
+}
+
+/*覆写elementUI 时间点控件长度*/
+.el-date-editor--datetime {
+    width: 168px;
+}
+
+/*所有文本框只能竖向拉*/
+textarea {
+    resize: vertical;
+    border-radius: 0;
+}
+
+/*覆写每个表单元素间距*/
+.el-form-item {
+    margin-bottom: 0;
+}
+
+/*单选复选文字折行*/
+.el-radio,
+.el-checkbox,
+.el-checkbox__input {
+    white-space: normal;
+}
+
+/*下拉图标下移*/
+.el-select .el-input__suffix {
+    top: 2px;
+}
+
+.el-transfer__button.is-disabled,
+.el-transfer__button.is-disabled:hover {
+    border: 1px solid #dcdfe6 !important;
+    background-color: #f5f7fa !important;
+    color: #c0c4cc !important;
+}
+
+.el-transfer-panel .el-transfer-panel__header .el-checkbox .el-checkbox__label span {
+    top: 10px;
+}
+
+/*只读的textarea字体颜色*/
+.el-textarea.is-disabled .el-textarea__inner {
+    color: #777;
+}
+
+
+/*覆写tag 用1.0的*/
+.el-tag {
+    background-color: #8391a5;
+    padding: 0 5px;
+    height: 22px;
+    line-height: 20px;
+    font-size: 12px;
+    color: #fff;
+    border-radius: 4px;
+    box-sizing: border-box;
+    border: 1px solid transparent;
+}
+
+.el-tag .el-icon-close {
+    right: -2px;
+}
+
+/*下拉去箭头，上移*/
+.el-popper {
+    margin-top: -1px !important;
+}
+
+.popper__arrow {
+    display: none !important;
+}
+
+/*tootip的箭头不隐藏*/
+.el-tooltip__popper.is-light .popper__arrow {
+    display: block !important;
+}
+
+/*elementUI的Dropdown间距调整*/
+.el-dropdown-menu {
+    padding: 6px 0;
+    min-width: 100px;
+}
+
+.el-dropdown-menu__item {
+    padding: 0 10px;
+}
+
+/*单选复选改为1.0的样子*/
+.el-radio__inner {
+    border: 1px solid #bfcbd9;
+    width: 18px;
+    height: 18px;
+}
+
+.el-radio__inner::after {
+    width: 6px;
+    height: 6px;
+}
+
+.el-checkbox__inner {
+    border: 1px solid #bfcbd9;
+    width: 18px;
+    height: 18px;
+}
+
+.el-checkbox__inner:after {
+    border: 2px solid #fff;
+    border-left: 0;
+    border-top: 0;
+    height: 8px;
+    left: 5px;
+    width: 4px;
+}
+
+/*覆写开关*/
+.el-switch {
+    vertical-align: text-bottom;
+}
+
+/*覆写多选选不全的减号*/
+.el-checkbox__input.is-indeterminate .el-checkbox__inner {
+    background-color: transparent;
+    border-color: #bfcbd9;
+}
+
+.el-checkbox__input.is-indeterminate+.el-checkbox__label {
+    color: #333;
+}
+
+/********************覆写表单元素  结束***********************/
+
+/********************覆写表格 开始***********************/
+.el-table {
+    border-left: 1px solid #dfe6ec;
+    border-right: 1px solid #dfe6ec;
+}
+
+/*表头文字可复制*/
+.el-table th {
+    user-select: text;
+}
+
+/*所有表格td不换行*/
+.el-table td .cell {
+    white-space: nowrap;
+}
+
+table {
+    font-size: 14px;
+}
+
+.el-table .cell {
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+.el-table__body-wrapper {
+    overflow: hidden;
+}
+
+@media screen and (max-width: 1300px) {
+    .el-table__body-wrapper {
+        overflow: auto;
+    }
+}
+
+.el-table td,
+.el-table th {
+    padding: 0;
+    height: 40px;
+    padding-left: 10px
+}
+
+.el-table th {
+    font-weight: normal;
+    font-size: 14px;
+    background-color: #eef1f6;
+    color: #333;
+}
+
+.el-table td {
+    color: #333;
+}
+
+.el-table th.is-leaf {
+    border-bottom: none;
+}
+
+/*表格选中样式*/
+.el-table--striped .el-table__body tr.bg-color-table-selected td {
+    background-color: #eef1f6;
+    color: #000;
+}
+
+.clicked-bg td a {
+    color: #ccc;
+}
+
+.bg-color-table-selected td a {
+    color: #337ab7;
+}
+
+/********************覆写表格  结束***********************/
+
+/********************覆写按钮  开始***********************/
+/*蓝色按钮颜色*/
+.el-button--primary{
+    background-color:#20a0ff
+}
+.el-button--primary:active {
+    background-color: rgb(25, 118, 211);
+}
+
+.el-button--primary:focus {
+    background-color: rgba(25, 118, 211, 0.7);
+}
+
+/*覆写按钮的内边距*/
+.el-button {
+    padding: 6px 10px;
+}
+
+/*覆写danger按钮*/
+.el-button--danger.is-plain {
+    color: #ff4949;
+    border-color: #ff4949;
+}
+
+/*后追加的图标有点击的感觉*/
+.el-input-group__append {
+    cursor: pointer;
+    border-radius: 0;
+}
+
+.el-input-group__append:hover {
+    background-color: #f2f2f2;
+}
+
+.el-input-group__append:active {
+    background-color: #eee;
+}
+
+/********************覆写按钮  结束***********************/
+
+/********************覆写模态框  开始***********************/
+.el-dialog__wrapper {
+    overflow: hidden;
+}
+
+.el-dialog__header {
+    height: 20px;
+}
+
+.el-dialog__headerbtn {
+    margin: -5px -5px 0 0;
+}
+
+.user-dialog .el-dialog__headerbtn {
+    position: absolute;
+    z-index: 10;
+    right: 40px;
+    top: 24px;
+}
+
+.reposition-dialog .el-dialog__headerbtn {
+    position: absolute;
+    z-index: 10;
+    right: 30px;
+    top: 20px;
+}
+
+.el-dialog {
+    margin-top: 0 !important;
+    top: 10% !important;
+}
+
+.el-dialog__body {
+    line-height: 24px;
+    padding: 0 20px;
+    margin-top: -15px;
+    height: 490px;
+    overflow-y: inherit;
+}
+
+@media screen and (min-height: 700px) {
+    .el-dialog__body {
+        height: 560px;
+    }
+}
+
+.samll-dialog .el-dialog {
+    top: 15% !important;
+    width: 30%;
+}
+
+.samll-dialog .el-dialog__body {
+    padding: 30px 20px 15px;
+    margin-top: 0;
+    height: auto;
+}
+
+@media screen and (max-width: 1500px) {
+    .samll-dialog .el-dialog__body {
+        height: auto;
+    }
+}
+
+/********************覆写模态框  结束***********************/
+
+/********************其他  开始***********************/
+/*所有图标鼠标指向变小手*/
+[class*=" fa-"],
+[class^="fa-"],
+[class*=" el-icon-"],
+[class^=el-icon-] {
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+/*覆写tooltip 边框颜色与内边距*/
+.el-tooltip__popper.is-light {
+    border: 1px solid #ccc;
+    max-width: 600px;
+    word-break: break-all;
+}
+
+.lowZindex {
+    z-index: 998 !important;
+    /*避免层级高，悬浮在模态或右拉之上*/
+}
+
+.el-tooltip__popper {
+    padding: 7px;
+    -webkit-box-shadow: 0 1px 10px 1px rgba(0, 0, 0, .2);
+    box-shadow: 0 1px 10px 1px rgba(0, 0, 0, .2);
+}
+
+/*覆写分页*/
+.el-pagination {
+    color: #48576a;
+    font-weight: normal;
+}
+
+.el-pagination button {
+    min-width: 28px;
+}
+
+.el-pagination .btn-next,
+.el-pagination .btn-prev {
+    background: 50% no-repeat #fff;
+    background-size: 16px;
+    border: 1px solid #d1dbe5;
+    cursor: pointer;
+    margin: 0;
+    padding: 0;
+    color: #97a8be;
+}
+
+.el-pagination .btn-prev {
+    border-right: 0;
+}
+
+.el-pager li {
+    min-width: 28px;
+    border: 1px solid #d1dbe5;
+    border-right: 0;
+}
+
+.el-pager li.active {
+    color: #fff;
+    background-color: #20a0ff;
+}
+
+.el-menu {
+    border-radius: 2px;
+    list-style: none;
+    position: relative;
+    margin: 0;
+    padding-left: 0;
+    background-color: #eef1f6;
+}
+
+.el-menu-item {
+    background-color: #e2e8f2
+}
+
+.el-menu-vertical-demo:not(.el-menu--collapse) {
+    width: 230px;
+    min-height: 400px;
+}
+
+.el-submenu .el-menu-item:hover,
+.el-submenu__title:hover {
+    background-color: #d1dbe5;
+}
+
+.el-dropdown-menu {
+    padding: 0;
+}
+

@@ -15,7 +15,7 @@ export default {
         }
     },
     mounted: function() {
-        
+        $('.el-aside').height($(window).height())
     },
     methods: {
         changeCollapse(isCollapse) {

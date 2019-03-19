@@ -1,4 +1,10 @@
+import BottomNav from "../../../components/layout/BottomNav.vue"
+
 export default {
+    name: "loginView",
+        components: {
+            "bottom-nav": BottomNav,
+        },
     data() {
         return {
             formData: {
@@ -8,7 +14,8 @@ export default {
             message:  ''
         }
     },
-    mounted: function() {
+    mounted: function () {
+        $('.main-content').height($(window).height()-180)
         this.testAxios();
     },
     methods: {

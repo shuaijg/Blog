@@ -1,10 +1,12 @@
 <template>
     <div>
         <el-row :gutter="20" style="color:#FFFFFF;">
-            <el-col :span="4"><div class="">文章</div></el-col>
-            <el-col :span="4"><div class="">留言</div></el-col>
-            <el-col :span="4"><div class="">用户</div></el-col>
-            <el-col :span="4" :push=9>
+            <el-col :span="2"><div class="">主页</div></el-col>
+            <el-col :span="2"><div class="">文章</div></el-col>
+            <el-col :span="2"><div class="">用户</div></el-col>
+            <el-col :span="2"><div class="">评论</div></el-col>
+            <el-col :span="2"><div class="">留言</div></el-col>
+            <el-col :span="4" :push=11>
                 <div class="font20">
                     <el-dropdown>
                     <span class="el-dropdown-link">
@@ -14,8 +16,6 @@
                         <el-dropdown-item>黄金糕</el-dropdown-item>
                         <el-dropdown-item>狮子头</el-dropdown-item>
                         <el-dropdown-item>螺蛳粉</el-dropdown-item>
-                        <el-dropdown-item disabled>双皮奶</el-dropdown-item>
-                        <el-dropdown-item divided>蚵仔煎</el-dropdown-item>
                     </el-dropdown-menu>
                     </el-dropdown>
                 </div>

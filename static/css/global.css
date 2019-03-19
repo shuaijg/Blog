@@ -9,7 +9,6 @@ html, body {
   
   body {
     overflow-x: hidden;
-    overflow-y: hidden;
   }
   
   body, div, dl, dt, dd, ul, ol, li, pre, form, fieldset, button, textarea, input, p, blockquote, th, td {
@@ -22,10 +21,7 @@ html, body {
     font-weight: normal;
     font-size: 100%;
   }
-  #app h4{
-    font-weight: 500;
-    font-size: 18px;
-  }
+  
   ol, ul, li {
     list-style: none;
   }
@@ -151,4 +147,10 @@ html, body {
   }
   .position-r{
     position: relative;
+  }
+  .write{
+    background-color: #FFFFFF;
+  }
+  .black{
+    background-color: #000000;
   }

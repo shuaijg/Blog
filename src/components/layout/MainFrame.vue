@@ -1,7 +1,7 @@
 <template>
     <el-container>
         <el-container>
-          <el-aside :width="isCollapse ? '65px' : '200px'">
+          <el-aside :width="isCollapse ? '65px' : '230px'" style="overflow-x: hidden;">
             <left-sider
             @update:isCollapse="val=>isCollapse=val"
             ></left-sider>

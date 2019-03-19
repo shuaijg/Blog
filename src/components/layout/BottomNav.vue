@@ -1,6 +1,6 @@
 <template>
     <div class="footer">
-        <p>Copyright © www.shuaijg.cn All Rights Reserved. 备案号：京ICP备18017964号-1</p>
+        <p class="">Copyright © www.shuaijg.cn All Rights Reserved. 备案号：京ICP备18017964号-1</p>
     </div>
 </template>
 
