@@ -38,7 +38,11 @@ const config = {
                 use: ["style-loader", "css-loader"] //css-loader: 加载由vue-loader提取出的css代码。
             },
             {
-                test: /\.(png|jpg)$/,
+                test: /\.scss$/,
+                use: ['style-loader', 'css-loader', 'sass-loader']
+            },
+            {
+                test: /\.(png|svg|jpg|gif|jpeg)$/,
                 use: ["happypack/loader?id=image"]
             },
             {
@@ -55,7 +59,7 @@ const config = {
     },
     resolve: {
         //导入的时候不用写拓展名
-        extensions: [" ", ".js", ".json", ".vue", ".scss", ".css"], //优先去找.js文件依赖 然后是.json 最后是.vue
+        extensions: [".js", ".vue", ".json", ".scss", ".css"], //优先去找.js文件依赖 然后是.json 最后是.vue
         alias: {
             vue$: "vue/dist/vue.esm.js",
             "@": path.resolve("src"),
@@ -68,8 +72,7 @@ const config = {
         poll: 1000 //每秒询问的文件变更的次数
     },
     devServer: {
-        contentBase: "./src", //本地服务器所加载的页面所在的目录
-        //contentBase: "../dist",
+        contentBase: "../dist", //本地服务器所加载的页面所在的目录
         host: "localhost", // 服务器的IP地址，可以使用IP也可以使用localhost
         inline: true, //实时刷新
         compress: true, // 服务端压缩是否开启
@@ -78,7 +81,6 @@ const config = {
         open: true, // 自动打开浏览器
         historyApiFallback: true, //不跳转
         //quiet: true //控制台中不输出打包的信息
-        //contentBase: "./public",//本地服务器所加载的页面所在的目录
         overlay: {
             errors: true
         },

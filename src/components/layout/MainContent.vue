@@ -21,7 +21,7 @@
 		</el-col>
         <el-table :data="tableData" :stripe="true" :default-sort = "{prop: 'sex', order: 'descending'}" style="width: 100%;border: 1px solid #dfe6ec;">
 			<el-table-column prop="name" label="姓名" width="120" sortable>
-                <template scope="scope">
+                <template slot-scope="scope">
                     <a @click.stop="">{{scope.row.name}}</a>
 				</template>
 			</el-table-column>
@@ -34,7 +34,7 @@
 			<el-table-column prop="address" label="地址" min-width="180" sortable>
 			</el-table-column>
             <el-table-column label="操作" width="150">
-				<template scope="scope">
+				<template slot-scope="scope">
                     <a @click.stop="">删除</a>
 				</template>
 			</el-table-column>

@@ -9,16 +9,25 @@ import axios from 'axios';
 import '../static/css/global.css'; //引入全局class
 import '../static/css/overwrite.css'; //引入全局class
 
-const root = document.createElement('div')
-document.body.appendChild(root);
-document.title = "Blog";
+//const root = document.createElement('div')
+//document.body.appendChild(root);
+//document.title = "Blog";
 
 Vue.prototype.$http = axios;
 Vue.use(ElementUI);
 
 // 创建Vue的根实例，以启动应用
+// new Vue({
+//   router,
+//   //通过h把App组件挂载到html里面，这里只是声明了渲染的是组件App的内容，还需通过$mount挂载到html的一个节点上面
+//   render: (h) => h(App)  //把app挂载到html里
+// }).$mount(root)   //调用api，$mount到html的节点里
+
 new Vue({
-  router,
-  //通过h把App组件挂载到html里面，这里只是声明了渲染的是组件App的内容，还需通过$mount挂载到html的一个节点上面
-  render: (h) => h(App)  //把app挂载到html里
-}).$mount(root)   //调用api，$mount到html的节点里
+    el: '#app',
+    router,
+    template: '<App/>',
+    components: {
+        App
+    }
+})

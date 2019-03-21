@@ -1,5 +1,5 @@
 .el-row {
-    background: url("../../../static/images/login/background2.jpg");
+    background: url("../../assets/images/background.jpg") no-repeat;
 }
 .el-col {
     border-radius: 4px;

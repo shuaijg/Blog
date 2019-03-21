@@ -8,7 +8,9 @@ const devWebpackConfig = merge(webpackConfig,{//合并
     plugins:[
         new webpack.NamedModulesPlugin(), // HMR在更新时在控制台显示正确的文件名
         new webpack.NoEmitOnErrorsPlugin(),//当编译出现错误的时候 来跳过输出阶段 可以确保资源输出不会包含错误
-        new HtmlWebpackPlugin(),
+        new HtmlWebpackPlugin({
+            template: './index.html' // 模板
+        }),
         new MiniCssExtractPlugin({//抽离css文件的插件
             filename: "style.css",//文件命名
             chunkFilename:'static/styles/style.css'//打包完文件的存放地址

@@ -22,7 +22,10 @@ export default {
         testAxios() {
             let self = this;
             this.$http.get('/api')
-            .then((res) => {self.message = res.data})
+                .then((res) => {
+                    self.message = res.data;
+                    console.log(res.data)
+                })
             .catch(error => console.log());
         }
     }
