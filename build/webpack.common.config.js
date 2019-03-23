@@ -39,11 +39,15 @@ const config = {
             },
             {
                 test: /\.scss$/,
-                use: ['style-loader', 'css-loader', 'sass-loader']
+                use: ["style-loader", "css-loader", "sass-loader"]
             },
             {
                 test: /\.(png|svg|jpg|gif|jpeg)$/,
-                use: ["happypack/loader?id=image"]
+                loader: "url-loader",
+                options:{
+                         limit: 10000,
+                         name: "static/img/[name].[hash:8].[ext]"
+                        }
             },
             {
                 test: /\.js$/,
@@ -120,18 +124,6 @@ const config = {
             threadPool: happyThreadPool, //共享进程池
             //允许 HappyPack 输出日志
             verbose: true
-        }),
-        new HappyPack({
-            id: "image",
-            loaders: [
-                {
-                    loader: require.resolve("url-loader"),
-                    options: {
-                        limit: 10000,
-                        name: "static/img/[name].[hash:8].[ext]"
-                    }
-                }
-            ]
         })
     ],
     performance: {

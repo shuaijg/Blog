@@ -14,7 +14,7 @@ export default {
             birth: '1992-03-21'
           };
           return {
-            tableData: Array(10).fill(item),
+            tableData: Array(20).fill(item),
             collapsed: false,
             name: "",
             total: 50,

@@ -8,7 +8,7 @@ html, body {
   }
   
   body {
-    overflow-x: hidden;
+    overflow: hidden;
   }
   
   body, div, dl, dt, dd, ul, ol, li, pre, form, fieldset, button, textarea, input, p, blockquote, th, td {
@@ -129,6 +129,9 @@ html, body {
   .line-height-85{
     line-height: 85px;
   }
+  .line-height-90 {
+      line-height: 90px;
+  }
   .margin-t0{
     margin-top: 0px;
   }
@@ -145,6 +148,10 @@ html, body {
     padding-top: 10px;
     padding-bottom: 10px;
   }
+  .padding-tb-20 {
+      padding-top: 20px;
+      padding-bottom: 20px;
+  }
   .position-r{
     position: relative;
   }
@@ -153,4 +160,13 @@ html, body {
   }
   .black{
     background-color: #000000;
+  }
+  .red{
+    background-color: red;
+  }
+  .red-color{
+    color:red;
+  }
+  .black-color{
+    color:#000000;
   }

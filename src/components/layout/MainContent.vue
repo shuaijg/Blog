@@ -1,5 +1,5 @@
 <template>
-    <section>
+    <section class="content">
         <el-breadcrumb separator="/" style="margin: 3px 0 7px 0;">
             <el-breadcrumb-item :to="{ path: '/' }">首页</el-breadcrumb-item>
             <el-breadcrumb-item><a href="/">活动管理</a></el-breadcrumb-item>

@@ -1,17 +1,21 @@
 <template>
-    <el-container>
-        <el-header class="login-top">
+    <el-container class="login">
+        <el-header class="login-top" height="80px">
             <el-row type="flex" align="middle" justify="center" class="height-per100">
                 <el-col :span="18" ><div class=""></div></el-col>
-                <el-col :span="4" :pull="1"><div class="font16"><a>15611771610@163.com</a></div></el-col>
+                <el-col :span="4" :pull="1">
+                    <div class="clearfix" style="padding-top:10px;">
+                        <div class="login-envelope"><i class="fa fa-envelope" style="font-size:26px;" aria-hidden="true"></i></div>
+                        <div class="login-email"><a class="black-color">15611771610@163.com</a></div>
+                    </div></el-col>
             </el-row>
         </el-header>
         <el-main>
             <el-row type="flex" align="middle" justify="center" class="height-per100 main-content">
-                <el-col :span="6">
-                    <div class="grid-content bg-login">
-                        <div class="text-c font20 position-r line-height-85">登录</div>
-                        <el-form label-width="80px" :model="formData">
+                <el-col :span="5">
+                    <div class="bg-login">
+                        <div class="text-c font20 position-r line-height-60" style="margin-top:20px;">登录</div>
+                        <el-form label-width="70px" :model="formData">
                             <el-form-item label="账号" prop="name">
                                 <el-input v-model="formData.name" placeholder="请输入账号"></el-input>
                             </el-form-item>
@@ -26,11 +30,11 @@
                 </el-col>
             </el-row>
         </el-main>
-        <el-footer class="login-bottom">
+        <el-footer class="login-bottom" height="80px">
             <bottom-nav></bottom-nav> 
         </el-footer>
     </el-container>
 </template>
 
 <script src="../../js/view/login/LoginView.js"></script>
-<style src="../../css/login/Login.css" ></style>
+<style src="../../css/login/Login.css" scoped></style>

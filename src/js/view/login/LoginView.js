@@ -15,7 +15,7 @@ export default {
         }
     },
     mounted: function () {
-        $('.main-content').height($(window).height()-180)
+        $('.main-content').height($(window).height()-200)
         this.testAxios();
     },
     methods: {
