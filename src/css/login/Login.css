@@ -1,5 +1,12 @@
 .login{
-    background-color: #FFFFFF;
+    min-width: 1150px;
+    /*min-height: 600px;*/
+    background-color: #fff;
+    position: fixed;
+    left:0;
+    top:0;
+    bottom: 0;
+    right: 0;
 }
 .login .el-main {
     background: url("../../assets/images/background.jpg") no-repeat;
