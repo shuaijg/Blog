@@ -15,15 +15,15 @@
                 <el-col :span="5">
                     <div class="bg-login">
                         <div class="text-c font20 position-r line-height-60" style="margin-top:20px;">登录</div>
-                        <el-form label-width="70px" :model="formData">
-                            <el-form-item label="账号" prop="name">
-                                <el-input v-model="formData.name" placeholder="请输入账号"></el-input>
+                        <el-form label-width="70px" :model="loginForm" :rules="rules" ref="loginForm">
+                            <el-form-item label="账号" prop="username">
+                                <el-input v-model="loginForm.username" auto-complete="off" placeholder="请输入账号"></el-input>
                             </el-form-item>
                             <el-form-item label="密码" prop="password">
-                                <el-input v-model="formData.password" placeholder="请输入密码"></el-input>
+                                <el-input v-model="loginForm.password" auto-complete="off" placeholder="请输入密码"></el-input>
                             </el-form-item>
                             <el-form-item>
-                                <el-button type="danger">登录</el-button>
+                                <el-button type="danger" @click.native.prevent="handleLogin" :loading="logining">登录</el-button>
                             </el-form-item>
                         </el-form>
                     </div>

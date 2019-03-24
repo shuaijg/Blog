@@ -9,11 +9,19 @@ export default {
     },
     data() {
         return {
-            isCollapse: false
+            isCollapse: false,
+            username: '',
+            password: ''
         }
     },
     mounted: function() {
-        $('.el-aside').height($(window).height())
+        $('.el-aside').height($(window).height());
+        let user = sessionStorage.getItem('user');
+        if (user) {
+            user = JSON.parse(user);
+            this.username = user.name || '';
+            this.password = user.avatar || '';
+        }
     },
     methods: {
         changeCollapse(isCollapse) {

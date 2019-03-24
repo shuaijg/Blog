@@ -90,6 +90,7 @@ module.exports.delete = function (collection, condition, callback) {
 }
 // 查询数据，condition为{}时可以查询该集合下的所有文档
 module.exports.find = function (collection, condition, callback) {
+  console.log(condition)
   _connectDB(function (err, db) {
       if (err) throw err
       let database = db.db(DB)

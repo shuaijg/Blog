@@ -16,6 +16,20 @@ import '../static/css/overwrite.css'; //引入全局class
 Vue.prototype.$http = axios;
 Vue.use(ElementUI);
 
+router.beforeEach((to, from, next) => {
+    if (to.path == '/login' || to.path == '/') {
+        sessionStorage.removeItem('user');
+    }
+    let user = JSON.parse(sessionStorage.getItem('user'));
+    if (!user && to.path != '/login') {
+        next({
+            path: '/login'
+        })
+    } else {
+        next()
+    }
+})
+
 // 创建Vue的根实例，以启动应用
 // new Vue({
 //   router,

@@ -3,11 +3,11 @@ const router = express.Router();
 const db = require('../db');
 
 /* GET home page. */
-router.get('/', function(req, res, next) {
-    db.find("blog_admin", {}, function(err, data) {
+router.post('/', function(req, res, next) {
+    db.find("blog_admin", req.body, function(err, data) {
         if (err) {
             console.log("Error:" + err)
-            return
+            return res;
         }
         res.json(data)
     })

@@ -7,26 +7,65 @@ export default {
         },
     data() {
         return {
-            formData: {
-                name: '',
+            logining: false,
+            loginForm: {
+                username: '',
                 password: ''
             },
-            message:  ''
+            rules: {
+                username: [{
+                        required: true,
+                        message: '请输入账号',
+                        trigger: 'blur'
+                    },
+                ],
+                password: [{
+                        required: true,
+                        message: '请输入密码',
+                        trigger: 'blur'
+                    },
+                ]
+            },
         }
     },
     mounted: function () {
         $('.main-content').height($(window).height()-200)
-        this.testAxios();
     },
     methods: {
-        testAxios() {
+        handleLogin(event) {
             let self = this;
-            this.$http.get('/api')
-                .then((res) => {
-                    self.message = res.data;
-                    console.log(res.data)
-                })
-            .catch(error => console.log());
-        }
+            self.$refs.loginForm.validate((valid) => {
+                if (valid) {
+                    self.logining = true;
+                    let loginParams = {
+                        username: self.loginForm.username,
+                        password: self.loginForm.password
+                    };
+                    self.$http.post('/api', loginParams).then(res => {
+                        self.logining = false;
+                        let status = res.status;
+                        let statusText = res.statusText;
+                        let user = res.data[0];
+                        if (status !== 200) {
+                            self.$message({
+                                message: statusText,
+                                type: 'error'
+                            });
+                        } else {
+                            self.$message({
+                                message: "登录成功",
+                                type: 'success'
+                            });
+                            window.sessionStorage.setItem('user', JSON.stringify(user));
+                            self.$router.replace({path: '/main'});
+                        }
+                    })
+                    .catch(error => console.log(error));
+                } else {
+                    console.log('error submit!!');
+                    return false;
+                }
+            });
+        },
     }
 }
