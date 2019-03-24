@@ -1,5 +1,5 @@
 .login{
-    min-width: 600px;
+    min-width: 300px;
     /*min-height: 600px;*/
     background-color: #fff;
     position: fixed;
@@ -10,7 +10,7 @@
 }
 .login .el-main {
     background: url("../../assets/images/background.jpg") no-repeat;
-    min-height: 666px;
+    min-height: 1666px;
 }
 .login-envelope {
     float: left;
