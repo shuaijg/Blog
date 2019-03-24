@@ -32,6 +32,7 @@
     0 2px 6px rgba(0, 0, 0, .15);
     padding-top: 10px;
     margin-top:-80px;
+    min-width: 338px;;
 }
 .login .el-form-item__content {
     margin-left: 25px;
