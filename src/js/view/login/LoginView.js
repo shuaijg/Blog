@@ -45,19 +45,31 @@ export default {
                         self.logining = false;
                         let status = res.status;
                         let statusText = res.statusText;
-                        let user = res.data[0];
                         if (status !== 200) {
                             self.$message({
                                 message: statusText,
                                 type: 'error'
                             });
                         } else {
-                            self.$message({
-                                message: "登录成功",
-                                type: 'success'
-                            });
-                            window.sessionStorage.setItem('user', JSON.stringify(user));
-                            self.$router.replace({path: '/main'});
+                            if (res.data.length != 0) {
+                                let user = res.data[0];
+                                self.$message({
+                                    message: "登录成功",
+                                    type: 'success'
+                                });
+                                window.sessionStorage.setItem('user', JSON.stringify(user));
+                                self.$router.push({
+                                    path: '/main'
+                                });
+                            } else { 
+                                self.$message({
+                                    message: "帐号或密码错误",
+                                    type: 'warning'
+                                });
+                                self.$router.push({
+                                    path: '/login'
+                                });
+                            }
                         }
                     })
                     .catch(error => console.log(error));
