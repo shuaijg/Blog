@@ -2,10 +2,20 @@
     height:60px;
     background-color: #20a0ff;
     line-height: 60px;
-    border-right: solid 1px #e6e6e6;
+    border-right: solid 1px #CCC;
 }
 
 .left-sider-content{
     background-color: #ecf1f5;
     text-align: left;
 }
+
+.el-menu [class^=fa] {
+    vertical-align: middle;
+    margin-right: 5px;
+    width: 24px;
+    text-align: center;
+    font-size: 18px;
+}
+
+

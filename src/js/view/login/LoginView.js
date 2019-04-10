@@ -41,7 +41,7 @@ export default {
                         username: self.loginForm.username,
                         password: self.loginForm.password
                     };
-                    self.$http.post('/api', loginParams).then(res => {
+                    self.$http.post('/api/login', loginParams).then(res => {
                         self.logining = false;
                         let status = res.status;
                         let statusText = res.statusText;
@@ -58,10 +58,10 @@ export default {
                                     type: 'success'
                                 });
                                 window.sessionStorage.setItem('user', JSON.stringify(user));
-                                self.$router.push({
+                                self.$router.replace({
                                     path: '/main'
                                 });
-                            } else { 
+                            } else {
                                 self.$message({
                                     message: "帐号或密码错误",
                                     type: 'warning'
@@ -72,7 +72,13 @@ export default {
                             }
                         }
                     })
-                    .catch(error => console.log(error));
+                        .catch(error =>
+                            self.$message({
+                                message: error.message,
+                                type: 'error'
+                            }),
+                            self.logining = false
+                        );
                 } else {
                     console.log('error submit!!');
                     return false;

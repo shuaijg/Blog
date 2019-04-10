@@ -2,28 +2,31 @@
     <div>
         <div class="left-sider-top">
             <el-row :gutter="20" style="color:#FFFFFF;">
-                <el-col :span="2" v-if="!isCollapse"><div class="grid-content bg-purple"></div></el-col>
-                <el-col :span="18" v-if="!isCollapse"><div class="font22">Blog</div></el-col>
-                <el-col :span="isCollapse ? 24 : 4"><div class="font16" @click.stop="changeCollapse"><i class="fa fa-bars"></i></div></el-col>
+                <el-col :span="14" v-if="!isCollapse"><div class="font22">Blog</div></el-col>
+                <el-col :span="isCollapse ? 24 : 10"><div class="font16" :class="isCollapse ? 'padding-l-10' : 'padding-l-11'" @click.stop="changeCollapse"><i class="fa fa-bars"></i></div></el-col>
             </el-row>
         </div>
         <div class="left-sider-content">
-            <el-menu default-active="1-4-1" class="el-menu-vertical-demo" @open="handleOpen" @close="handleClose" :collapse="isCollapse">
-            <el-submenu index="1">
-                <template slot="title">
-                <i class="el-icon-location"></i>
-                <span slot="title">导航一</span>
+            <el-menu :default-active="activeIndex" class="el-menu-vertical-demo" @open="handleOpen" @close="handleClose" :collapse="isCollapse" :unique-opened="false" :collapse-transition="true" router>
+            <template v-for="(item,index) in menuData">
+                <template v-if="item.dropdown">
+                    <el-submenu :index="item.id" :id="item.id">
+                        <template slot="title">
+                        <i :class="item.icon"></i>
+                        <span slot="title" class="font14">{{item.name}}</span>
+                        </template>
+                        <el-menu-item class="font14" v-for="(childItem,childIndex) in item.children" :index="'/' + item.id + '/' + childItem.id">{{childItem.name}}</el-menu-item>
+                    </el-submenu>
                 </template>
-                <el-menu-item index="1-1">选项1</el-menu-item>
-                <el-menu-item index="1-2">选项2</el-menu-item>
-            </el-submenu>
-            <el-submenu index="2">
-                <template slot="title">
-                <i class="el-icon-menu"></i>
-                <span slot="title">导航二</span>
+                <template v-else>
+                    <el-menu-item :index="'/' + item.id">
+                        <template>
+                        <i :class="item.icon"></i>
+                        <span slot="title" class="font14">{{item.name}}</span>
+                        </template>
+                    </el-menu-item>
                 </template>
-                <el-menu-item index="1-3">选项3</el-menu-item>
-            </el-submenu>
+            </template>
             </el-menu>
         </div>
     </div>

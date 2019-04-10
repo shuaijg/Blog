@@ -15,13 +15,14 @@ export default new Router({
         component: Login
       },
       {
-        path: '/main',
+        path: '/*',
         name: 'mainFrame',
         component: MainFrame,
         children: [
           {
             path: '',
             components:{
+              leftSider: LeftSider,
               mainContent: MainContent
             }
           }

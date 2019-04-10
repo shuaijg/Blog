@@ -1,3 +1,4 @@
+import 'babel-polyfill'
 import Vue from 'vue';
 import router from './router'; // 路由
 import ElementUI from 'element-ui';

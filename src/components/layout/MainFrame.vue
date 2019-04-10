@@ -1,10 +1,12 @@
 <template>
     <el-container class="mainFrame">
         <el-container>
-          <el-aside :width="isCollapse ? '65px' : '230px'" style="overflow-x: hidden;">
-            <left-sider
+          <el-aside :width="isCollapse ? '65px' : '180px'" style="overflow-x: hidden;" class="border-r">
+            <router-view 
+            name="leftSider" 
+            :menuData = menuData
             @update:isCollapse="val=>isCollapse=val"
-            ></left-sider>
+            ></router-view>
           </el-aside>
           <el-container>
               <el-header> 

@@ -2,7 +2,7 @@
 const config = require('./dbConfig')
 const MongoClient = require("mongodb").MongoClient
 const DB = config.mongodb.dbName
-const dbUrl = 'mongodb://' + config.mongodb.dbIp + ':' + config.mongodb.dbPort
+const dbUrl = 'mongodb://' + config.mongodb.dbUserName + ':' + config.mongodb.dbPassword + '@' + config.mongodb.dbIp + ':' + config.mongodb.dbPort
 const maxConnetTimes = 3
 
 // const connect = () => {
@@ -32,9 +32,14 @@ const maxConnetTimes = 3
 // module.exports = connect
 
 function _connectDB(callback) {
-  MongoClient.connect(dbUrl, { useNewUrlParser: true }, function(err, db) {
-    console.log("连接成功！");
-    callback(err, db)
+  MongoClient.connect(dbUrl, { useNewUrlParser: true }, function (err, db) {
+    if (err) { 
+      console.log("连接失败!")
+      console.log(err.errmsg)
+      throw err
+    }
+    console.log("连接成功!");
+     callback(err, db)
   })
 }
 

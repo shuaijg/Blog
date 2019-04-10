@@ -43,6 +43,9 @@ html, body {
   table {
     border-collapse: collapse;
   }
+  .border-r{
+    border-right: 1px solid #CCC;
+  }
   /*Initialization end*/
   .height-per100{
     height:100%
@@ -89,6 +92,9 @@ html, body {
   }
   .font14{
     font-size: 14px;
+  }
+  .font15 {
+      font-size: 15px;
   }
   .font16{
     font-size: 16px;
@@ -151,6 +157,15 @@ html, body {
   .padding-tb-20 {
       padding-top: 20px;
       padding-bottom: 20px;
+  }
+  .padding-l-0{
+    padding-left: 0;
+  }
+  .padding-l-10 {
+      padding-left: 10px;
+  }
+  .padding-l-11 {
+      padding-left: 11px;
   }
   .position-r{
     position: relative;

@@ -92,7 +92,7 @@ const config = {
             "/api": {
                 target: "http://localhost:3001", // 接口域名
                 //ws: true,
-                pathRewrite: { "^/api": "/api" } //这里把/api换成""
+                pathRewrite: { "^/api": "" } //这里把/api换成""
             },
             secure: false, // 如果是https接口，需要配置这个参数
             changeOrigin: true // 如果接口跨域，需要进行这个参数配置
