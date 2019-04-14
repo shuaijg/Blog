@@ -164,8 +164,11 @@ html, body {
   .padding-l-10 {
       padding-left: 10px;
   }
-  .padding-l-11 {
-      padding-left: 11px;
+  .padding-l-3 {
+      padding-left: 3px;
+  }
+  .padding-20{
+    padding: 20px;
   }
   .position-r{
     position: relative;
@@ -185,3 +188,61 @@ html, body {
   .black-color{
     color:#000000;
   }
+
+
+  /********************右拉框***********************/
+  .popUpBox-modal {
+      top: 0;
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      left: 0;
+      background-color: rgba(0, 0, 0, 0.5);
+      z-index: 998;
+      width: 100%;
+      display: none;
+  }
+
+  .popUpBox {
+      top: 0;
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      background-color: #fff;
+      z-index: 999;
+      overflow-x: inherit;
+      box-shadow: 0 4px 23px 5px rgba(0, 0, 0, .2), 0 2px 6px rgba(0, 0, 0, .15);
+      display: none;
+  }
+
+  .popUpBox .my-customer-right-head {
+      border: none;
+  }
+
+  .popUpBox-content {
+      position: absolute;
+      z-index: 999;
+      left: 0;
+      right: 0;
+      top: 0;
+      bottom: 0;
+      padding: 0 10px 10px;
+  }
+
+  .popUpBox-content h4 {
+      padding: 15px 0 10px 15px;
+      margin: 0;
+      border-bottom: 1px solid #ccc;
+  }
+
+  .popUpBox-content h4 .f-r {
+      margin: -6px 5px 0 0;
+      float: right;
+  }
+
+  .popUpBox-content-inner {
+      height: calc(100% - 50px);
+      overflow-y: auto;
+  }
+
+  /********************右拉框***********************/

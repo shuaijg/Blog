@@ -3,7 +3,7 @@
         <div class="left-sider-top">
             <el-row :gutter="20" style="color:#FFFFFF;">
                 <el-col :span="14" v-if="!isCollapse"><div class="font22">Blog</div></el-col>
-                <el-col :span="isCollapse ? 24 : 10"><div class="font16" :class="isCollapse ? 'padding-l-10' : 'padding-l-11'" @click.stop="changeCollapse"><i class="fa fa-bars"></i></div></el-col>
+                <el-col :span="isCollapse ? 24 : 10"><div class="font16" :class="isCollapse ? 'padding-l-3' : 'padding-l-10'" @click.stop="changeCollapse"><i class="fa fa-bars"></i></div></el-col>
             </el-row>
         </div>
         <div class="left-sider-content">

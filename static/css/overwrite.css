@@ -448,3 +448,6 @@ table {
 .el-menu-item.is-active:hover{
     background-color: #FFF;
 }
+.el-main{
+    padding: 0;
+}
