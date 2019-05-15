@@ -1,5 +1,6 @@
 //const mongoose = require('mongoose')
 const config = require('./dbConfig')
+const ObjectID = require('mongodb').ObjectID;
 const MongoClient = require("mongodb").MongoClient
 const DB = config.mongodb.dbName
 const dbUrl = 'mongodb://' + config.mongodb.dbUserName + ':' + config.mongodb.dbPassword + '@' + config.mongodb.dbIp + ':' + config.mongodb.dbPort
@@ -39,69 +40,162 @@ function _connectDB(callback) {
       throw err
     }
     console.log("连接成功!");
-     callback(err, db)
+    callback(err, db)
   })
 }
-
+/**********************添加**************************************/
 // 插入一个文档数据
 module.exports.insertOne = function (collection, data, callback) {
-  _connectDB(function (err, db) {
+  _connectDB(function (err, client) {
       if (err) throw err
-      let database = db.db(DB)
-      database.collection(collection).insertOne(data, function (err, result) {
+      let db = client.db(DB)
+      db.collection(collection).insertOne(data, function (err, result) {
           callback(err, result)
-          db.close()
+          client.close()
       })
   })
 }
 // 插入多个文档数据，传入的data必须为数组
 module.exports.insert = function (collection, data, callback) {
-  _connectDB(function (err, db) {
+  _connectDB(function (err, client) {
       if (err) throw err
-      let database = db.db(DB)
+      let db = client.db(DB)
       if (!(data instanceof Array)) {
           throw new Error('请使用数组传入多个数据，或者调用Insert添加单个数据')
       }
       if (data.length === 0) {
           throw new Error('禁止插入空数组')
       } 
-      database.collection(collection).insertMany(data, function(err, result) {
+      db.collection(collection).insertMany(data, function(err, result) {
           callback(err, result)
-          db.close()
+          client.close()
       })
   })
 }
+/**********************总数**************************************/
+//根据条件查找记录数
+module.exports.count = function (collection,whereObj,callback) { 
+  _connectDB(function (err, client) {
+    if (err) throw err
+    let db = client.db(DB)
+    db.collection(collection).count(whereObj).then(function(count) {
+      callback(count)
+    })
+  });
+},
+  /**********************修改**************************************/
+// 修改多个文档数据，传入的data必须为数组
+module.exports.update = function (collection, whereObj, upObj, callback) {
+    _connectDB(function (err, client) {
+        if (err) throw err
+        let db = client.db(DB)
+        if (!(data instanceof Array)) {
+            throw new Error('请使用数组传入多个数据，或者调用Update添加单个数据')
+        }
+        if (data.length === 0) {
+            throw new Error('禁止插入空数组')
+        }
+      db.collection(collection).updateMany(whereObj, upObj, function (err, result) {
+            callback(err, result)
+            client.close()
+        })
+    })
+}
+// 修改单个文档数据
+module.exports.updateOne = function (collection, whereObj, upObj, callback) {
+    _connectDB(function (err, client) {
+        if (err) throw err
+        let db = client.db(DB)
+        db.collection(collection).updateOne(whereObj,upObj, function (err, result) {
+            callback(err, result)
+            client.close()
+        })
+    })
+}
+// 根据id修改一条记录
+module.exports.updateOneById = function (collection, id, upObj, callback) {
+    _connectDB(function (err, client) {
+        if (err) throw err
+      let db = client.db(DB)
+      delete upObj._id;
+      upObj = { $set: upObj };
+      db.collection(collection).updateOne({_id:ObjectID(id)}, upObj, function (err, result) {
+            callback(err, result)
+            client.close()
+        })
+    })
+}
+/**********************删除**************************************/
 // 删除单个数据
-module.exports.deleteOne = function (collection, condition, callback) {
-  _connectDB(function (err, db) {
+module.exports.deleteOne = function (collection, whereObj, callback) {
+  _connectDB(function (err, client) {
       if (err) throw err
-      let database = db.db(DB)
-      database.collection(collection).deleteOne(condition, function (err, result) {
+    let db = client.db(DB)
+      db.collection(collection).deleteOne({_id:ObjectID(whereObj._id)}, function (err, result) {
           callback(err, result)
-          db.close()
+          client.close()
       })
   })
 }
 // 删除多个数据
-module.exports.delete = function (collection, condition, callback) {
-  _connectDB(function (err, db) {
+module.exports.delete = function (collection, whereObj, callback) {
+  _connectDB(function (err, client) {
       if (err) throw err
-      let database = db.db(DB)
-      database.collection(collection).deleteMany(condition, function (err, result) {
+      let db = client.db(DB)
+      db.collection(collection).deleteMany(whereObj, function (err, result) {
           callback(err, result)
-          db.close()
+          client.close()
       })
   })
 }
-// 查询数据，condition为{}时可以查询该集合下的所有文档
-module.exports.find = function (collection, condition, callback) {
-  console.log(condition)
-  _connectDB(function (err, db) {
+/**********************查询**************************************/
+//查找一条记录
+module.exports.findOne = function (collection,whereObj,callback) { 
+  _connectDB(function (err, client) {
       if (err) throw err
-      let database = db.db(DB)
-      database.collection(collection).find(condition).toArray(function (err, result) {
+      let db = client.db(DB)
+      db.collection(collection).findOne(whereObj, function (err, result) {
           callback(err, result)
-          db.close()
+          client.close()
+      })
+  })
+}
+//根据id来查找记录
+module.exports.findOneById = function (collection,id,callback) { 
+  _connectDB(function (err, client) {
+      if (err) throw err
+      let db = client.db(DB)
+    db.collection(collection).findOne({_id:mongodb.ObjectId(id)}, function (err, result) {
+          callback(err, result)
+          client.close()
+      })
+  })
+}
+ /*查找
+  * collection： 集合
+  * obj:
+  * whereObj: 条件， 默认是 {}
+  * sortObj: 排序， 默认是 {}
+  * limit: 显示提定条数, 默认是0 
+  * skip: 跳过指定条数， 默认是0 
+  * */
+module.exports.find = function (collection, obj, callback) {
+  //如果有条件，将条件赋值给obj.whereObj,没有传条件默认为{}
+  obj.whereObj = obj.whereObj || {};
+  obj.sortObj = obj.sortObj || {};
+  obj.limit = obj.limit || 0;
+  obj.skip = obj.skip || 0;
+  _connectDB(function (err, client) {
+      if (err) throw err
+      let db = client.db(DB)
+    db.collection(collection)
+      .find(obj.whereObj)
+      .sort(obj.sortObj)
+      .limit(obj.limit)
+      .skip(obj.skip)
+      .toArray(function (err, result) {
+          callback(err, result)
+          client.close()
       })
   })
 }

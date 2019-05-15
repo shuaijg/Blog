@@ -1,3 +1,8 @@
+/**
+ *  路由懒加载
+ *  定义：懒加载也叫延迟加载，即在需要的时候进行加载，随用随载。从而提升了系统性能。
+ *
+ */
 const Index = resolve => require(['../../../components/index/Index.vue'], resolve);
 const ArticleContentManage = resolve => require(['../../../components/article/ArticleContentManage.vue'], resolve);
 const ArticleTypeManage = resolve => require(['../../../components/article/ArticleTypeManage.vue'], resolve);

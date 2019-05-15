@@ -11,3 +11,7 @@
 .article-content .el-form-item {
     margin-bottom: 0;
 }
+.article-details .el-form-item {
+    margin-bottom: 10px;
+    width:90%;
+}
